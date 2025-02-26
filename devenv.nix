@@ -5,26 +5,21 @@
   env.GREET = "devenv";
 
   # https://devenv.sh/packages/
-  packages = [ pkgs.git ];
+  packages = with pkgs; [ 
+    pyright
+    black
+    isort
+    uv
+  ];
 
   # https://devenv.sh/languages/
-  # languages.rust.enable = true;
+  languages.python.enable = true;
 
   # https://devenv.sh/processes/
   # processes.cargo-watch.exec = "cargo-watch";
 
   # https://devenv.sh/services/
   # services.postgres.enable = true;
-
-  # https://devenv.sh/scripts/
-  scripts.hello.exec = ''
-    echo hello from $GREET
-  '';
-
-  enterShell = ''
-    hello
-    git --version
-  '';
 
   # https://devenv.sh/tasks/
   # tasks = {
